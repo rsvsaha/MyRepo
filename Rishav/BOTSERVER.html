@@ -1,0 +1,99 @@
+<!---->
+<html>
+<h1>BOT SERVER </h1>
+<script type="text/javascript">
+	
+	function SENSOR_READ()
+	{
+		document.getElementById("SENSOR1").value ="NONE";
+	nocache ="&nocache="+ Math.random() * 1000000;
+	
+	var request = new XMLHttpRequest();
+	
+	request.onreadystatechange = function() 
+	{
+	
+	if (this.readyState == 4 && this.status == 200) 
+		{
+		if (this.responseText != null) 
+			{document.getElementById("SENSOR1").value = this.responseText;}
+		}
+	}
+		request.open("GET", "sensorval" + nocache, true)
+		request.send(null);
+		setTimeout('SENSOR_READ()',100);
+	}
+
+	
+	function FORWARD(){document.getElementById("SENSOR2").value ="NOT FORWARD"
+	nocache ="&nocache="+ Math.random() * 1000000;
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+	if (this.readyState == 4) {
+	if (this.status == 200) {
+	if (this.responseText != null) 
+	{document.getElementById("SENSOR2").value ="FORWARD"}}}}
+		request.open("GET", "forward" + nocache, true)
+		request.send(null);
+	}
+	
+	function BACKWARD(){
+		document.getElementById("SENSOR2").value ="NOT BACKWARD"
+	nocache ="&nocache="+ Math.random() * 1000000;
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+	if (this.readyState == 4) {
+	if (this.status == 200) {
+	if (this.responseText != null) 
+	{document.getElementById("SENSOR2").value ="BACKWARD"}}}}
+		request.open("GET", "backward" + nocache, true)
+		request.send(null);
+	}
+	
+	function LEFT(){document.getElementById("SENSOR2").value = "NOT LEFT"
+	nocache ="&nocache="+ Math.random() * 1000000;
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+	if (this.readyState == 4) {
+	if (this.status == 200) {
+	if (this.responseText != null) 
+	{document.getElementById("SENSOR2").value = "LEFT"}}}}
+		request.open("GET", "left" + nocache, true)
+		request.send(null);
+	}
+	
+	function RIGHT(){document.getElementById("SENSOR2").value = "NOT RIGHT"
+	nocache ="&nocache="+ Math.random() * 1000000;
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+	if (this.readyState == 4) {
+	if (this.status == 200) {
+	if (this.responseText != null) 
+	{document.getElementById("SENSOR2").value = "RIGHT"}}}}
+		request.open("GET", "right" + nocache, true)
+		request.send(null);
+	}
+
+
+
+
+
+</script>
+<body onload="SENSOR_READ()">
+	<p>SENSOR1:<input type="text" id="SENSOR1" value=" ">
+	   SENSOR2:<input type="text" id="SENSOR2" value=" ">
+	   SENSOR3:<input type="text" id="SENSOR3" value=" ">
+	   SENSOR4:<input type="text" id="SENSOR4" value=" ">
+	</p>
+
+</br>
+</p>
+<p>
+<button type="button" id="FORWARD" align="centre" width="48" height="48" onclick="FORWARD();">FORWARD</button></br>     
+<button type="button" id="LEFT" align="left" width="48" height="48" onclick="LEFT();">LEFT</button>    
+<button type="button" id="RIGHT" align="right" width="48" height="48" onclick="RIGHT();">RIGHT</button></br>
+<button type="button" id="BACKWARD" align="centre" width="48" height="48" onclick="BACKWARD();">BACKWARD</button></br>
+<button type="button" id="START STREAMING" align="centre" width="48" height="48" onclick="SENSOR_READ();">START</button>    
+</p>
+</body>
+</html>

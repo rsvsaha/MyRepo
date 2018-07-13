@@ -1,0 +1,28 @@
+<!----->
+<!DOCTYPE HTML>
+<html>
+<script type='text/javascript'>
+var ctr=0;
+function Hello() {
+  	document.getElementById("SENSOR1").value=ctr;
+   setTimeout(Hello,1000);
+   ctr=ctr+1;
+}
+</script>
+<body>
+<h1> BOT CONTROL </h1>
+<p> SENSOR1:<input type="text" id="SENSOR1" value=" ">
+SENSOR2:<input type="text" id="SENSOR2" value=" ">
+SENSOR3:<input type="text" id="SENSOR3" value=" ">
+SENSOR4:<input type="text" id="SENSOR4" value=" ">
+</br>
+</p>
+<p>
+<button type="button" id="FORWARD" align="centre" width="48" height="48" onclick="FORWARD();">FORWARD</button></br>      
+<button type="button" id="LEFT" align="left" width="48" height="48" onclick="LEFT();">LEFT</button>    
+<button type="button" id="RIGHT" align="right" width="48" height="48" onclick="RIGHT();">RIGHT</button></br>
+<button type="button" id="BACKWARD" align="centre" width="48" height="48" onclick="BACKWARD();">BACKWARD</button></br>
+<button type="button" id="START STREAMING" align="centre" width="48" height="48" onclick='Hello();'>START</button>    
+</p>
+</body>
+</html>
